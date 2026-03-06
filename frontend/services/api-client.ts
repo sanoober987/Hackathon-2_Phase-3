@@ -153,7 +153,12 @@ class TaskApiService {
       method: "PATCH",
     });
   }
-
+async updateTask(
+  id: string,
+  data: TaskUpdateData
+): Promise<Task> {
+  return this.patchTask(id, data);
+}
   // ======================================================
   // CHAT API
   // ======================================================
@@ -172,8 +177,11 @@ class TaskApiService {
   }
 }
 
+
+  
 // ======================================================
 // EXPORT SINGLETON INSTANCE
 // ======================================================
 
 export const taskApiService = new TaskApiService();
+
